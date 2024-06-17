@@ -24,6 +24,12 @@
 		4F6B37F72C1FCF8300C48947 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F6B37EE2C1FCF8200C48947 /* Pretendard-Regular.otf */; };
 		4F6B37F82C1FCF8300C48947 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F6B37EF2C1FCF8300C48947 /* Pretendard-Black.otf */; };
 		4F6B37FB2C1FD07200C48947 /* Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B37FA2C1FD07200C48947 /* Pretendard.swift */; };
+		4F6B37FD2C1FD89000C48947 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B37FC2C1FD89000C48947 /* MusicManager.swift */; };
+		4F6B38012C2061A800C48947 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B38002C2061A800C48947 /* OnboardingView.swift */; };
+		4F6B38052C20796500C48947 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B38042C20796500C48947 /* Color+.swift */; };
+		4F6B38072C20921900C48947 /* SelectYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B38062C20921900C48947 /* SelectYearView.swift */; };
+		4F6B380B2C2097C800C48947 /* SelectOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B380A2C2097C800C48947 /* SelectOptionView.swift */; };
+		4F6B380D2C20A80100C48947 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B380C2C20A80100C48947 /* NavigationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +71,12 @@
 		4F6B37EF2C1FCF8300C48947 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		4F6B37F92C1FCF9800C48947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4F6B37FA2C1FD07200C48947 /* Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretendard.swift; sourceTree = "<group>"; };
+		4F6B37FC2C1FD89000C48947 /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
+		4F6B38002C2061A800C48947 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		4F6B38042C20796500C48947 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		4F6B38062C20921900C48947 /* SelectYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYearView.swift; sourceTree = "<group>"; };
+		4F6B380A2C2097C800C48947 /* SelectOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOptionView.swift; sourceTree = "<group>"; };
+		4F6B380C2C20A80100C48947 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				4F6B37B52C1FC71B00C48947 /* ContentView.swift */,
+				4F6B38002C2061A800C48947 /* OnboardingView.swift */,
+				4F6B38062C20921900C48947 /* SelectYearView.swift */,
+				4F6B380A2C2097C800C48947 /* SelectOptionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +185,8 @@
 		4F6B37DF2C1FC7F100C48947 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				4F6B37FC2C1FD89000C48947 /* MusicManager.swift */,
+				4F6B380C2C20A80100C48947 /* NavigationManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -211,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				4F6B37FA2C1FD07200C48947 /* Pretendard.swift */,
+				4F6B38042C20796500C48947 /* Color+.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -354,9 +372,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F6B38052C20796500C48947 /* Color+.swift in Sources */,
 				4F6B37FB2C1FD07200C48947 /* Pretendard.swift in Sources */,
+				4F6B37FD2C1FD89000C48947 /* MusicManager.swift in Sources */,
+				4F6B380B2C2097C800C48947 /* SelectOptionView.swift in Sources */,
+				4F6B38072C20921900C48947 /* SelectYearView.swift in Sources */,
 				4F6B37B62C1FC71B00C48947 /* ContentView.swift in Sources */,
 				4F6B37B42C1FC71B00C48947 /* OneSecondApp.swift in Sources */,
+				4F6B38012C2061A800C48947 /* OnboardingView.swift in Sources */,
+				4F6B380D2C20A80100C48947 /* NavigationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
