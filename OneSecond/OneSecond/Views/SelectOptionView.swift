@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SelectOptionView: View {
     @Binding var isHidden: Bool
+    var yeardata: YearModel
+    
     @State var questionCount: Int? = nil
     @State var playTime: Int? = nil
     
@@ -65,7 +67,9 @@ struct SelectOptionView: View {
             }.padding(.top, 10)
         }
         Button(action: {
-            NavigationManager.shared.push(to: .quiz)
+            if let questionCount = questionCount, let playTime = playTime {
+                NavigationManager.shared.push(to: .quiz(selectYear: yeardata.year, questionCount: questionCount, playTime: playTime))
+            }
         }) {
             ZStack {
                 RoundedRectangle(cornerRadius: 13.0)
@@ -83,5 +87,5 @@ struct SelectOptionView: View {
 }
 
 #Preview {
-    SelectOptionView(isHidden: .constant(false))
+    SelectOptionView(isHidden: .constant(false), yeardata: YearModel(year: 2001, imageSource: "PlayList_Thumbnail_2023"))
 }
