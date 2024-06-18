@@ -68,7 +68,7 @@ struct SelectOptionView: View {
         }
         Button(action: {
             if let questionCount = questionCount, let playTime = playTime {
-                NavigationManager.shared.push(to: .quiz(selectYear: yeardata.year, questionCount: questionCount, playTime: playTime))
+                NavigationManager.shared.push(to: .quizReady(selectYear: yeardata.year, questionCount: questionCount, playTime: playTime))
             }
         }) {
             ZStack {
