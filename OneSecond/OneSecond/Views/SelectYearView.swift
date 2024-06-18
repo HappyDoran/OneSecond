@@ -19,7 +19,7 @@ struct SelectYearView: View {
                     Text("연도에 맞는 음악 퀴즈가 자동 생성돼요.")
                         .font(.system(size: 17, weight: .medium))
                         .foregroundColor(Color(hex: "#C7C7C7"))
-                        .padding(.bottom,30)
+                        .padding(.bottom,10)
                 }
                 Spacer()
             }
@@ -32,17 +32,16 @@ struct SelectYearView: View {
                             let index = rowIndex * 2 + columnIndex
                             if selectedIndex == nil || selectedIndex == index {
                                 VStack {
-                                    Button(action: {
-                                        withAnimation {
-                                            isVStackHidden[index].toggle()
-                                            selectedIndex = (selectedIndex == index) ? nil : index
+                                    RoundedRectangle(cornerRadius: 10.0)
+                                        .frame(width: selectedIndex == index ? 361 : 180,
+                                               height: selectedIndex == index ? 361 : 180)
+                                        .foregroundColor(Color(hex: "#C7C7C7"))
+                                        .onTapGesture {
+                                            withAnimation {
+                                                isVStackHidden[index].toggle()
+                                                selectedIndex = (selectedIndex == index) ? nil : index
+                                            }
                                         }
-                                    }) {
-                                        RoundedRectangle(cornerRadius: 10.0)
-                                            .frame(width: selectedIndex == index ? 361 : 180,
-                                                   height: selectedIndex == index ? 361 : 180)
-                                            .foregroundColor(Color(hex: "#C7C7C7"))
-                                    }
                                     if isVStackHidden[index] {
                                         SelectOptionView(isHidden: $isVStackHidden[index])
                                             .transition(.scale)
