@@ -16,8 +16,9 @@ class MusicManager: ObservableObject {
     private init() { }
     
     @Published var songs: [Song] = []
+    @Published var song: Song? = nil
     @Published var tracks: [Song] = []
-    @Published var isLoading = false
+    @Published var isLoading: Bool = true
     
     private var musicPlayer = MPMusicPlayerController.applicationQueuePlayer
     
@@ -101,6 +102,27 @@ class MusicManager: ObservableObject {
                 print("플레이리스트를 가져오는 데 실패했습니다: \(error)")
             }
             isLoading = false
+        }
+    }
+    
+    func getRandomTrack() {
+        self.song = tracks.randomElement()
+        if let randomSong = song {
+            randomSongPlay(randomSong)
+        }
+    }
+    
+    func randomSongPlay(_ song: Song){
+        Task {
+            do {
+                print(song)
+                let storeID = song.id.rawValue
+                let descriptor = MPMusicPlayerStoreQueueDescriptor(storeIDs: [storeID])
+                musicPlayer.setQueue(with: descriptor)
+                musicPlayer.play()
+            } catch {
+                print("Error playing song: \(error)")
+            }
         }
     }
 }
