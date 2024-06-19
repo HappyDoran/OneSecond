@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "PlayList_Thumbnail_2023@1x.png",
+      "filename" : "PlayList_Thumbnail_2020@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "PlayList_Thumbnail_2023@2x.png",
+      "filename" : "PlayList_Thumbnail_2020@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "PlayList_Thumbnail_2023@3X.png",
+      "filename" : "PlayList_Thumbnail_2020@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
