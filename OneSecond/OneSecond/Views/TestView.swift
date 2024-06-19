@@ -74,9 +74,7 @@ struct TestView: View {
                     NavigationManager.shared.pop(to: .selectYear)
                 } label: {
                     Image(systemName: "chevron.backward")
-                        .resizable()
-                        .scaledToFit()
-                        .font(.system(size: 17))
+                        .font(.system(size: 20))
                         .bold()
                         .foregroundStyle(.black)
                         .padding(.vertical, 11)

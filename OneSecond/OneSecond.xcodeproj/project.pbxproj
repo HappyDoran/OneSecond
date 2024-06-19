@@ -182,7 +182,6 @@
 				4F6B38062C20921900C48947 /* SelectYearView.swift */,
 				4F6B380A2C2097C800C48947 /* SelectOptionView.swift */,
 				4F6B380E2C21138D00C48947 /* QuizReadyView.swift */,
-				9ED2F5402C226C3A0099A467 /* sdf.swift */,
 				4F6B38142C21935700C48947 /* QuizView.swift */,
 				4F6B38122C217FDD00C48947 /* TestView.swift */,
 				4F6B38162C22CDF900C48947 /* QuizFinishView.swift */,
@@ -392,7 +391,6 @@
 				4F6B38132C217FDD00C48947 /* TestView.swift in Sources */,
 				4F6B38052C20796500C48947 /* Color+.swift in Sources */,
 				4F6B37FB2C1FD07200C48947 /* Pretendard.swift in Sources */,
-				9ED2F5412C226C3A0099A467 /* sdf.swift in Sources */,
 				4F6B37FD2C1FD89000C48947 /* MusicManager.swift in Sources */,
 				4F6B38152C21935700C48947 /* QuizView.swift in Sources */,
 				4F6B380B2C2097C800C48947 /* SelectOptionView.swift in Sources */,
@@ -566,7 +564,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OneSecond/Preview Content\"";
-				DEVELOPMENT_TEAM = U6CCD5BT22;
+				DEVELOPMENT_TEAM = 56D5DRN4CX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneSecond/Info.plist;
@@ -597,7 +595,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OneSecond/Preview Content\"";
-				DEVELOPMENT_TEAM = U6CCD5BT22;
+				DEVELOPMENT_TEAM = 56D5DRN4CX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneSecond/Info.plist;

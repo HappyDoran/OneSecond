@@ -19,7 +19,7 @@ struct OnboardingView: View {
                         .fill(Color.black)
                         .frame(width: geometry.size.width, height: geometry.size.height / 2)
                     Text("one").font(.custom("Hoefler Text Black", size: 150)).foregroundColor(Color(hex: "FF0080"))
-                        .padding(.bottom,-40)
+                        .padding(.bottom,-42)
                 }
                 ZStack(alignment: .top){
                     Rectangle()
@@ -33,7 +33,7 @@ struct OnboardingView: View {
                 } label: {
                     HStack {
                         Spacer()
-//                        Text("시작하기")
+                        //                        Text("시작하기")
                             .foregroundColor(Color(hex: "FFFFFF"))
                             .font(.system(size: 24))
                             .bold()
@@ -53,14 +53,6 @@ struct OnboardingView: View {
                     NavigationManager.shared.push(to:.selectYear)
                 }
             }
-//            .background(
-//                NavigationLink(
-//                    destination: SelectYearView()
-//                        .navigationBarBackButtonHidden(true),
-//                    isActive: $navigateToNext,
-//                    label: { EmptyView() }
-//                )
-//            )
     }
 }
         
