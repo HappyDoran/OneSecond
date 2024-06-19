@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct OneSecondApp: App {
+    @State private var navigationManager = NavigationManager.shared
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack(path: $navigationManager.path) {
+                OnboardingView()
+                    .navigationDestination(for: PathType.self) { path in
+                        path.NavigatingView()
+                            .navigationBarBackButtonHidden(true)
+                    }
+            }
+//            .preferredColorScheme(.dark)
         }
     }
 }
