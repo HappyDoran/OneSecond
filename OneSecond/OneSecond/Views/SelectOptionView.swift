@@ -16,7 +16,7 @@ struct SelectOptionView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("몇 문제 도전하시겠어요?").font(.system(size: 22, weight: .semibold))
+            Text("몇 문제 도전하시겠어요?").font(.system(size: 19, weight: .semibold))
                 .padding(.top, 20)
                 .padding(.leading,8)
 
@@ -27,21 +27,22 @@ struct SelectOptionView: View {
                             questionCount = (index + 1) * 10
                         }) {
                             RoundedRectangle(cornerRadius: 40.0)
-                                .shadow(color: .gray, radius: 1, x: 0, y: 3)
+                                .shadow(color: .gray, radius: 1, x: 0, y: 2)
                                 .frame(width: 85, height: 50)
                                 .foregroundColor(questionCount == (index + 1) * 10 ? Color(hex: "#000000") : Color(hex: "#000000").opacity(0.15))
                         }
                         Text("\((index + 1) * 10)문제")
                         
-                            .font(.system(size: 18, weight: .regular))
+                            .font(.system(size: 16, weight: .regular))
                             .fontWeight(questionCount == (index + 1) * 10 ? .bold : .regular)
                             .foregroundColor(questionCount == (index + 1) * 10 ? Color(hex: "#FFFFFF") : Color(hex: "#000000"))
                     }
                 }
+
             }.padding(.top, 4)
             
-            Text("몇 초만 들으시겠어요?").font(.system(size: 22, weight: .semibold))
-                .padding(.top, 5)
+            Text("몇 초만 들으시겠어요?").font(.system(size: 19, weight: .semibold))
+                .padding(.top, 11)
                 .padding(.leading,8)
 
             HStack {
@@ -56,7 +57,7 @@ struct SelectOptionView: View {
                                 .foregroundColor(playTime == index + 1 ? Color(hex: "#00000") : Color(hex: "#000000").opacity(0.15))
                         }
                         Text("\(index + 1)초")
-                            .font(.system(size: 18, weight: .regular))
+                            .font(.system(size: 16, weight: .regular))
                             .fontWeight(playTime == index + 1 ? .bold : .regular)
                             .foregroundColor(playTime == index + 1 ? Color(hex: "#FFFFFF") : Color(hex: "#000000"))
                     }
@@ -66,13 +67,13 @@ struct SelectOptionView: View {
                         playTime = 0
                     }) {
                         RoundedRectangle(cornerRadius: 40.0)
-                            .shadow(color: .gray, radius: 1, x: 0, y: 3)
+                            .shadow(color: .gray, radius: 1, x: 0, y: 2)
 
                             .frame(width: 85, height: 50)
                             .foregroundColor(playTime == 0 ? Color(hex: "#000000") : Color(hex: "#000000").opacity(0.15))
                     }
                     Text("전부")
-                        .font(.system(size: 18, weight: .regular))
+                        .font(.system(size: 16, weight: .regular))
                         .fontWeight(playTime == 0 ? .bold : .regular)
                         .foregroundColor(playTime == 0 ? Color(hex: "#FFFFFF") : Color(hex: "#000000"))
                 }
@@ -91,7 +92,7 @@ struct SelectOptionView: View {
 //                Spacer()
                 Text("시작하기")
                     .foregroundColor(questionCount != nil && playTime != nil ? Color(hex: "#FFFFFF") : Color(hex: "#000000"))
-                    .font(.system(size: 24))
+                    .font(.system(size: 21))
                     .bold()
                     .tint(.white)
                 
