@@ -38,24 +38,38 @@ struct QuizView: View {
             }
             Spacer()
             
-            Text("당신의 음악 감각을 보여주세요!").font(.system(size: 24, weight: .bold))
+            Text("여러분의 음악 감각을\n보여주세요!").font(.system(size: 24, weight: .bold))
+                .padding(.top,6)
+                .multilineTextAlignment(.center)
+
+                
             
             ZStack{
                 if let artwork = musicManager.song?.artwork {
-                    ArtworkImage(artwork,width: 260, height: 260).cornerRadius(50).shadow(color: .gray, radius: 1, x: 0, y: 3)
+                    ArtworkImage(artwork,width: 260, height: 260).cornerRadius(50).shadow(color: .gray, radius: 1, x: 0, y: 2)
                 }
                 if(hintCount > 2){
-                    RoundedRectangle(cornerRadius: 50).frame(width: 260,height: 260).foregroundColor(Color(hex: "#D9D9D9")).shadow(color: .gray, radius: 1, x: 0, y: 3)
+                    Image("DefaultImage")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 260, height: 260)
+                        .cornerRadius(50)
+                        .shadow(color: .gray, radius: 1, x: 0, y: 2)
+                
+//                    RoundedRectangle(cornerRadius: 50).frame(width: 260,height: 260).foregroundColor(Color(hex: "#D9D9D9"))
                 }
             }
-            .padding(.top,20)
+            .padding(.top,14)
 
             if let title = musicManager.song?.title {
-                Text(title).font(.system(size: 20, weight: .bold)).padding(.top,10).opacity(isCorrect ? 1 : 0)
+                Text(title).font(.system(size: 24, weight: .bold)).padding(.top,10).opacity(isCorrect ? 1 : 0)
+                    .padding(.bottom,1)
+                    .multilineTextAlignment(.center)
+
             }
             
             if let artistName = musicManager.song?.artistName {
-                Text(artistName).font(.system(size: 14, weight: .semibold)).opacity(hintCount<2 ? 1 : 0)
+                Text(artistName).font(.system(size: 17, weight: .semibold)).opacity(hintCount<2 ? 1 : 0)
             }
             
             if let releaseDate = musicManager.song?.releaseDate {
@@ -84,10 +98,10 @@ struct QuizView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 50)
                     .foregroundColor(Color(hex: "#000000"))
-                    .shadow(color: .gray, radius: 1, x: 0, y: 3)
                 
             }
-            .padding(.top,20)
+            .padding(.top,14)
+            .padding(.leading,1.1)
             
             Button(action:{
                 hintCount-=1
@@ -113,10 +127,10 @@ struct QuizView: View {
                 }
             }){
                 ZStack{
-                    RoundedRectangle(cornerRadius: 40).frame(width: 135,height: 50).foregroundColor(Color(hex: "#000000")).shadow(color: .gray, radius: 1, x: 0, y: 3)
+                    RoundedRectangle(cornerRadius: 40).frame(width: 130,height: 50).foregroundColor(Color(hex: "#000000"))
                     Text(hintCount < 1 ?
                          hintCount < 0 ?
-                         "다음문제":"정답보기" : "힌트 \(hintCount)/3").font(.system(size: 18, weight: .bold)).foregroundColor(.white)
+                         "다음 문제":"정답 보기" : "힌트 \(hintCount)/3").font(.system(size: 18, weight: .bold)).foregroundColor(.white)
                 }
             }.padding(.top,10)
             
@@ -135,16 +149,17 @@ struct QuizView: View {
                     NavigationManager.shared.pop(to: .selectYear)
                 } label: {
                     Image(systemName: "chevron.backward")
-                        .resizable()
-                        .scaledToFit()
-                        .font(.system(size: 17))
+                        .font(.system(size: 20))
                         .bold()
                         .foregroundStyle(.black)
                         .padding(.vertical, 11)
+                        .padding(.top,5)
+                        .padding(.bottom,5)
                 }
                 .frame(width: 44, height: 44)
             }
         }
+        .padding(.top,20)
         .onAppear{
             musicManager.getRandomTrack(time: Double(playTime))
         }
