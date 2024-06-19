@@ -50,18 +50,17 @@ struct OnboardingView: View {
         }.edgesIgnoringSafeArea(.top)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    navigateToNext = true
+                    NavigationManager.shared.push(to:.selectYear)
                 }
             }
-            .background(
-                NavigationLink(
-                    destination: SelectYearView()
-                        .navigationBarBackButtonHidden(true),
-                    isActive: $navigateToNext,
-                    label: { EmptyView() }
-                )
-            )
-        
+//            .background(
+//                NavigationLink(
+//                    destination: SelectYearView()
+//                        .navigationBarBackButtonHidden(true),
+//                    isActive: $navigateToNext,
+//                    label: { EmptyView() }
+//                )
+//            )
     }
 }
         
