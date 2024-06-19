@@ -21,7 +21,7 @@ struct QuizReadyView: View {
                 ProgressView("음악 데이터를 불러오는 중...")
             } else {
                 Button(action:{
-                    NavigationManager.shared.push(to: .quiz)
+                    NavigationManager.shared.push(to: .quiz(playTime: playTime))
                 }){
                     Text("퀴즈 풀러가기")
                 }
