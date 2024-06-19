@@ -47,15 +47,22 @@ struct QuizView: View {
             ZStack{
                 if let artwork = musicManager.song?.artwork {
                     ArtworkImage(artwork,width: 260, height: 260).cornerRadius(50).shadow(color: .gray, radius: 1, x: 0, y: 2)
-                }
-                if(hintCount > 2){
                     Image("DefaultImage")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 260, height: 260)
                         .cornerRadius(50)
+                        .opacity(hintCount > 2 ? 1 : 0)
                         .shadow(color: .gray, radius: 1, x: 0, y: 2)
                 }
+//                if(hintCount > 2){
+//                    Image("DefaultImage")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: 260, height: 260)
+//                        .cornerRadius(50)
+//                        .shadow(color: .gray, radius: 1, x: 0, y: 2)
+//                }
             }
             .padding(.top,14)
 
@@ -137,8 +144,10 @@ struct QuizView: View {
             }.padding(.top,10)
             
             Button(action:{
-                hintCount = -1
-                isCorrect = true
+                withAnimation{
+                    hintCount = -1
+                    isCorrect = true
+                }
             }){
                 Text("정답 바로보기").font(.system(size: 12, weight: .regular)).foregroundColor(.black).opacity(hintCount > 0 ? 1 : 0)
             }.disabled(hintCount <= 0)
