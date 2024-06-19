@@ -43,9 +43,8 @@ struct QuizView: View {
             ZStack{
                 if let artwork = musicManager.song?.artwork {
                     ArtworkImage(artwork,width: 260, height: 260).cornerRadius(50).shadow(color: .gray, radius: 1, x: 0, y: 3)
-                }
-                if(hintCount > 2){
-                    RoundedRectangle(cornerRadius: 50).frame(width: 260,height: 260).foregroundColor(Color(hex: "#D9D9D9")).shadow(color: .gray, radius: 1, x: 0, y: 3)
+                    RoundedRectangle(cornerRadius: 50).frame(width: 260,height: 260).foregroundColor(hintCount > 2 ? Color(hex: "#D9D9D9") : .clear).shadow(color: .gray, radius: 1, x: 0, y: 3)
+   
                 }
             }
             .padding(.top,20)
@@ -90,11 +89,15 @@ struct QuizView: View {
             .padding(.top,20)
             
             Button(action:{
-                hintCount-=1
+                withAnimation{
+                    hintCount-=1
+                }
                 print(hintCount)
                 
                 if (hintCount < 0){
-                    isCorrect = true
+                    withAnimation{
+                        isCorrect = true
+                    }
                 }
                 
                 if(hintCount < -1){
