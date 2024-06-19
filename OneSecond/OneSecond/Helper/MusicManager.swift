@@ -20,7 +20,7 @@ class MusicManager: ObservableObject {
     @Published var tracks: [Song] = []
     @Published var isLoading: Bool = true
     
-    private var musicPlayer = MPMusicPlayerController.applicationQueuePlayer
+    @Published var musicPlayer = MPMusicPlayerController.applicationQueuePlayer
     
     func requestAuthorization() async -> Bool {
         let status = await MusicAuthorization.request()
@@ -108,8 +108,12 @@ class MusicManager: ObservableObject {
     func getRandomTrack(time: Double) {
         self.song = tracks.randomElement()
         if let randomSong = song {
-//            playSongPlay(randomSong)
-            songPlayForTime(randomSong, time: time)
+            if (time == 0){
+                playSongPlay(randomSong)
+            }
+            else{
+                songPlayForTime(randomSong, time: time)
+            }
         }
     }
     

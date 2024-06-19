@@ -10,8 +10,9 @@ import SwiftUI
 enum PathType: Hashable {
     case onboarding
     case selectYear
+    case quizFinish
     
-    case quiz(playTime: Int)
+    case quiz(questionCount: Int, playTime: Int)
     case quizReady(selectYear: Int, questionCount: Int, playTime: Int)
     
 }
@@ -24,9 +25,11 @@ extension PathType {
             OnboardingView()
         case .selectYear:
             SelectYearView()
+        case .quizFinish:
+            QuizFinishView()
             
-        case .quiz(let playTime):
-            QuizView(playTime: playTime)
+        case .quiz(let questionCount, let playTime):
+            QuizView(questionCount: questionCount, playTime: playTime)
         case .quizReady(let selectYear, let questionCount, let playTime):
             QuizReadyView(selectYear: selectYear, questionCount: questionCount, playTime: playTime)
         }
