@@ -16,8 +16,10 @@ struct SelectOptionView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("몇 문제 도전하시겠어요?").font(.system(size: 24, weight: .semibold))
-                .padding(.top, 30)
+            Text("몇 문제 도전하시겠어요?").font(.system(size: 22, weight: .semibold))
+                .padding(.top, 20)
+                .padding(.leading,8)
+
             HStack {
                 ForEach(0..<3) { index in
                     ZStack {
@@ -25,18 +27,23 @@ struct SelectOptionView: View {
                             questionCount = (index + 1) * 10
                         }) {
                             RoundedRectangle(cornerRadius: 40.0)
+                                .shadow(color: .gray, radius: 1, x: 0, y: 3)
                                 .frame(width: 85, height: 50)
-                                .foregroundColor(questionCount == (index + 1) * 10 ? Color(hex: "#0A84FF") : Color(hex: "#0A84FF").opacity(0.15))
+                                .foregroundColor(questionCount == (index + 1) * 10 ? Color(hex: "#000000") : Color(hex: "#000000").opacity(0.15))
                         }
                         Text("\((index + 1) * 10)문제")
-                            .font(.system(size: 20, weight: .regular))
-                            .foregroundColor(questionCount == (index + 1) * 10 ? Color(hex: "#FFFFFF") : Color(hex: "#0A84FF"))
+                        
+                            .font(.system(size: 18, weight: .regular))
+                            .fontWeight(questionCount == (index + 1) * 10 ? .bold : .regular)
+                            .foregroundColor(questionCount == (index + 1) * 10 ? Color(hex: "#FFFFFF") : Color(hex: "#000000"))
                     }
                 }
-            }.padding(.top, 10)
+            }.padding(.top, 4)
             
-            Text("몇 초만 들으시겠어요?").font(.system(size: 24, weight: .semibold))
-                .padding(.top, 30)
+            Text("몇 초만 들으시겠어요?").font(.system(size: 22, weight: .semibold))
+                .padding(.top, 5)
+                .padding(.leading,8)
+
             HStack {
                 ForEach(0..<3) { index in
                     ZStack {
@@ -44,12 +51,14 @@ struct SelectOptionView: View {
                             playTime = index + 1
                         }) {
                             RoundedRectangle(cornerRadius: 40.0)
+                                .shadow(color: .gray, radius: 1, x: 0, y: 3)
                                 .frame(width: 85, height: 50)
-                                .foregroundColor(playTime == index + 1 ? Color(hex: "#0A84FF") : Color(hex: "#0A84FF").opacity(0.15))
+                                .foregroundColor(playTime == index + 1 ? Color(hex: "#00000") : Color(hex: "#000000").opacity(0.15))
                         }
                         Text("\(index + 1)초")
-                            .font(.system(size: 20, weight: .regular))
-                            .foregroundColor(playTime == index + 1 ? Color(hex: "#FFFFFF") : Color(hex: "#0A84FF"))
+                            .font(.system(size: 18, weight: .regular))
+                            .fontWeight(playTime == index + 1 ? .bold : .regular)
+                            .foregroundColor(playTime == index + 1 ? Color(hex: "#FFFFFF") : Color(hex: "#000000"))
                     }
                 }
                 ZStack {
@@ -57,32 +66,46 @@ struct SelectOptionView: View {
                         playTime = 0
                     }) {
                         RoundedRectangle(cornerRadius: 40.0)
+                            .shadow(color: .gray, radius: 1, x: 0, y: 3)
+
                             .frame(width: 85, height: 50)
-                            .foregroundColor(playTime == 0 ? Color(hex: "#0A84FF") : Color(hex: "#0A84FF").opacity(0.15))
+                            .foregroundColor(playTime == 0 ? Color(hex: "#000000") : Color(hex: "#000000").opacity(0.15))
                     }
                     Text("전부")
-                        .font(.system(size: 20, weight: .regular))
-                        .foregroundColor(playTime == 0 ? Color(hex: "#FFFFFF") : Color(hex: "#0A84FF"))
+                        .font(.system(size: 18, weight: .regular))
+                        .fontWeight(playTime == 0 ? .bold : .regular)
+                        .foregroundColor(playTime == 0 ? Color(hex: "#FFFFFF") : Color(hex: "#000000"))
                 }
-            }.padding(.top, 10)
+            }.padding(.top, 4)
         }
         Button(action: {
             if let questionCount = questionCount, let playTime = playTime {
                 NavigationManager.shared.push(to: .quiz(selectYear: yeardata.year, questionCount: questionCount, playTime: playTime))
             }
         }) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 13.0)
-                    .frame(width: 340, height: 60)
-                    .foregroundColor(questionCount != nil && playTime != nil ? Color(hex: "#0A84FF") : Color.gray)
+            VStack {
+//                RoundedRectangle(cornerRadius: 13.0)
+//                    .frame(width: 350, height: 60)
+//                    .foregroundColor(questionCount != nil && playTime != nil ? Color(hex: "#000000") : Color(hex: "#000000").opacity(0.15))
+//                
+//                Spacer()
+                Text("시작하기")
+                    .foregroundColor(questionCount != nil && playTime != nil ? Color(hex: "#FFFFFF") : Color(hex: "#000000"))
+                    .font(.system(size: 24))
+                    .bold()
+                    .tint(.white)
                 
-                Text("퀴즈 시작!")
-                    .font(.system(size: 20, weight: .bold))
-                    .foregroundColor(Color(hex: "#FFFFFF"))
-            }
+                
+            }.frame(width: 300, height: 50)
+
+            .background(questionCount != nil && playTime != nil ? Color(hex: "000000") : Color(hex:"#000000").opacity(0.15))
+            
+
         }
+        .clipShape(RoundedRectangle(cornerRadius: 40))
+
         .disabled(questionCount == nil || playTime == nil)
-        .padding(.top, 30)
+        .padding(.top, 20)
     }
 }
 
