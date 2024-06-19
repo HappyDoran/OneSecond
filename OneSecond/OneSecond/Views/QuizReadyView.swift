@@ -64,7 +64,7 @@ struct QuizReadyView: View {
                     
                     Spacer()
                     Button(action: {
-                        NavigationManager.shared.push(to: .quiz)
+                        NavigationManager.shared.push(to: .quiz(questionCount: questionCount, playTime: playTime))
                     }){
                         Text("시작하기")
                             .foregroundColor(Color(hex: "#FFFFFF"))
