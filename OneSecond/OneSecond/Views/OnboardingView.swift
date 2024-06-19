@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @State private var navigateToNext = false
     var body: some View {
         
         GeometryReader { geometry in
@@ -22,7 +24,7 @@ struct OnboardingView: View {
                 ZStack(alignment: .top){
                     Rectangle()
                         .foregroundColor(Color(hex: "FF0080"))
-                        .frame(width: geometry.size.width, height: geometry.size.height / 2 - 60)
+                        .frame(width: geometry.size.width, height: geometry.size.height / 2)
                     Text("second").font(.custom("Hoefler Text Black", size: 100)).foregroundColor(Color(hex: "000000"))
                         .padding(.top,-10)
                 }
@@ -31,7 +33,7 @@ struct OnboardingView: View {
                 } label: {
                     HStack {
                         Spacer()
-                        Text("시작하기")
+//                        Text("시작하기")
                             .foregroundColor(Color(hex: "FFFFFF"))
                             .font(.system(size: 24))
                             .bold()
@@ -41,11 +43,24 @@ struct OnboardingView: View {
                     }
                     .padding(.vertical, 16)
                 }
-                .background(Color(hex: "000000"))
+                .background(Color(hex: "FF0080"))
             }
             
             
         }.edgesIgnoringSafeArea(.top)
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    navigateToNext = true
+                }
+            }
+            .background(
+                NavigationLink(
+                    destination: SelectYearView()
+                        .navigationBarBackButtonHidden(true),
+                    isActive: $navigateToNext,
+                    label: { EmptyView() }
+                )
+            )
         
     }
 }
