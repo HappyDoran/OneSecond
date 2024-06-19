@@ -24,29 +24,11 @@ struct OnboardingView: View {
                 ZStack(alignment: .top){
                     Rectangle()
                         .foregroundColor(Color(hex: "FF0080"))
-                        .frame(width: geometry.size.width, height: geometry.size.height / 2)
+                        .frame(width: geometry.size.width, height: geometry.size.height)
                     Text("second").font(.custom("Hoefler Text Black", size: 100)).foregroundColor(Color(hex: "000000"))
                         .padding(.top,-10)
                 }
-                Button {
-                    NavigationManager.shared.push(to: .selectYear)
-                } label: {
-                    HStack {
-                        Spacer()
-                        //                        Text("시작하기")
-                            .foregroundColor(Color(hex: "FFFFFF"))
-                            .font(.system(size: 24))
-                            .bold()
-                            .tint(.white)
-                        
-                        Spacer()
-                    }
-                    .padding(.vertical, 16)
-                }
-                .background(Color(hex: "FF0080"))
             }
-            
-            
         }.edgesIgnoringSafeArea(.top)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
