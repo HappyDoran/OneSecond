@@ -55,8 +55,6 @@ struct QuizView: View {
                         .frame(width: 260, height: 260)
                         .cornerRadius(50)
                         .shadow(color: .gray, radius: 1, x: 0, y: 2)
-                
-//                    RoundedRectangle(cornerRadius: 50).frame(width: 260,height: 260).foregroundColor(Color(hex: "#D9D9D9"))
                 }
             }
             .padding(.top,14)
@@ -104,11 +102,15 @@ struct QuizView: View {
             .padding(.leading,1.1)
             
             Button(action:{
-                hintCount-=1
+                withAnimation{
+                    hintCount-=1
+                }
                 print(hintCount)
                 
                 if (hintCount < 0){
-                    isCorrect = true
+                    withAnimation{
+                        isCorrect = true
+                    }
                 }
                 
                 if(hintCount < -1){
