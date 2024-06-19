@@ -9,28 +9,32 @@ import SwiftUI
 
 struct QuizView: View {
     
-    let selectYear: Int
-    let questionCount: Int
-    let playTime: Int
-    
     @StateObject private var musicManager = MusicManager.shared
     
     var body: some View {
-        VStack {
-            if musicManager.isLoading {
-                ProgressView("음악 데이터를 불러오는 중...")
-            } else {
-                List(musicManager.tracks, id: \.id) { song in
-                    Text(song.title)
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        NavigationManager.shared.pop(to: .selectYear)
+                    } label: {
+                        Image(systemName: "chevron.backward")
+                            .resizable()
+                            .scaledToFit()
+                            .font(.system(size: 17))
+                            .bold()
+                            .foregroundStyle(.black)
+                            .padding(.vertical, 11)
+                    }
+                    .frame(width: 44, height: 44)
                 }
             }
-        }
-        .onAppear {
-            musicManager.fetchTracksFromPlaylist(year: selectYear)
-        }
+            .onAppear{
+                musicManager.getRandomTrack()
+            }
     }
 }
 
 #Preview {
-    QuizView(selectYear: 2001, questionCount: 1, playTime: 1)
+    QuizView()
 }

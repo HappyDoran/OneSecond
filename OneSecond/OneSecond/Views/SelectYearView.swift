@@ -10,6 +10,7 @@ import SwiftUI
 struct SelectYearView: View {
     @State private var isVStackHidden: [Bool] = Array(repeating: false, count: yearData.count)  // 버튼 상태 배열
     @State private var selectedIndex: Int? = nil  // 선택된 버튼의 인덱스
+    @State private var isAnimating: Bool = false  // 애니메이션 상태
     
     var body: some View {
         ScrollView(showsIndicators: false){
@@ -51,11 +52,17 @@ struct SelectYearView: View {
 //                                               height: selectedIndex == index ? 361 : 180)
 //                                    .cornerRadius(10)
                                         .onTapGesture {
+                                            guard !isAnimating else { return }
+                                            isAnimating = true
                                             withAnimation {
-                                                isVStackHidden[index].toggle()
                                                 selectedIndex = (selectedIndex == index) ? nil : index
+                                                isVStackHidden[index].toggle()
+                                            }
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                isAnimating = false
                                             }
                                         }
+                                        .disabled(isAnimating)
                                     if isVStackHidden[index] {
                                         SelectOptionView(isHidden: $isVStackHidden[index], yeardata: yearData[index])
                                             .transition(.scale)
