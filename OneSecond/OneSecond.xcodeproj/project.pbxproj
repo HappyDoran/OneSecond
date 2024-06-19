@@ -34,7 +34,7 @@
 		4F6B38112C211E3C00C48947 /* YearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B38102C211E3C00C48947 /* YearModel.swift */; };
 		4F6B38132C217FDD00C48947 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B38122C217FDD00C48947 /* TestView.swift */; };
 		4F6B38152C21935700C48947 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B38142C21935700C48947 /* QuizView.swift */; };
-		9ED2F5412C226C3A0099A467 /* sdf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED2F5402C226C3A0099A467 /* sdf.swift */; };
+		4F6B38172C22CDF900C48947 /* QuizFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B38162C22CDF900C48947 /* QuizFinishView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +86,7 @@
 		4F6B38102C211E3C00C48947 /* YearModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearModel.swift; sourceTree = "<group>"; };
 		4F6B38122C217FDD00C48947 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4F6B38142C21935700C48947 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
-		9ED2F5402C226C3A0099A467 /* sdf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sdf.swift; sourceTree = "<group>"; };
+		4F6B38162C22CDF900C48947 /* QuizFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFinishView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +185,7 @@
 				9ED2F5402C226C3A0099A467 /* sdf.swift */,
 				4F6B38142C21935700C48947 /* QuizView.swift */,
 				4F6B38122C217FDD00C48947 /* TestView.swift */,
+				4F6B38162C22CDF900C48947 /* QuizFinishView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -387,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F6B38172C22CDF900C48947 /* QuizFinishView.swift in Sources */,
 				4F6B38132C217FDD00C48947 /* TestView.swift in Sources */,
 				4F6B38052C20796500C48947 /* Color+.swift in Sources */,
 				4F6B37FB2C1FD07200C48947 /* Pretendard.swift in Sources */,
@@ -564,7 +566,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OneSecond/Preview Content\"";
-				DEVELOPMENT_TEAM = 56D5DRN4CX;
+				DEVELOPMENT_TEAM = U6CCD5BT22;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneSecond/Info.plist;
@@ -595,7 +597,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OneSecond/Preview Content\"";
-				DEVELOPMENT_TEAM = 56D5DRN4CX;
+				DEVELOPMENT_TEAM = U6CCD5BT22;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneSecond/Info.plist;

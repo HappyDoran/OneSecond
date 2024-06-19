@@ -76,7 +76,6 @@ struct QuizReadyView: View {
                             .fill(Color(hex:"#000000")))
                             .padding(.bottom,20)
                     }/*.clipShape(RoundedRectangle(cornerRadius: 20))*/
-                    
                 }
             }
                 

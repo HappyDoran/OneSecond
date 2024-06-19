@@ -20,7 +20,7 @@ class MusicManager: ObservableObject {
     @Published var tracks: [Song] = []
     @Published var isLoading: Bool = true
     
-    private var musicPlayer = MPMusicPlayerController.applicationQueuePlayer
+    @Published var musicPlayer = MPMusicPlayerController.applicationQueuePlayer
     
     func requestAuthorization() async -> Bool {
         let status = await MusicAuthorization.request()
@@ -105,14 +105,19 @@ class MusicManager: ObservableObject {
         }
     }
     
-    func getRandomTrack() {
+    func getRandomTrack(time: Double) {
         self.song = tracks.randomElement()
         if let randomSong = song {
-            randomSongPlay(randomSong)
+            if (time == 0){
+                playSongPlay(randomSong)
+            }
+            else{
+                songPlayForTime(randomSong, time: time)
+            }
         }
     }
     
-    func randomSongPlay(_ song: Song){
+    func playSongPlay(_ song: Song){
         Task {
             do {
                 print(song)
@@ -120,8 +125,22 @@ class MusicManager: ObservableObject {
                 let descriptor = MPMusicPlayerStoreQueueDescriptor(storeIDs: [storeID])
                 musicPlayer.setQueue(with: descriptor)
                 musicPlayer.play()
-            } catch {
-                print("Error playing song: \(error)")
+            }
+        }
+    }
+    
+    func songPlayForTime(_ song: Song, time: Double){
+        Task {
+            do {
+                print(song)
+                let storeID = song.id.rawValue
+                let descriptor = MPMusicPlayerStoreQueueDescriptor(storeIDs: [storeID])
+                musicPlayer.setQueue(with: descriptor)
+                musicPlayer.play()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + time){
+                    self.musicPlayer.pause()
+                }
             }
         }
     }

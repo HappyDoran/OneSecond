@@ -10,6 +10,7 @@ import SwiftUI
 struct TestView: View {
     
     @StateObject private var musicManager = MusicManager.shared
+    @State var hintCount: Int = 3
     
     var body: some View {
         VStack {
@@ -28,11 +29,15 @@ struct TestView: View {
             Text("당신의 음악 감각을 보여주세요!").font(.system(size: 24, weight: .semibold))
             ZStack{
                 RoundedRectangle(cornerRadius: 50).frame(width: 260,height: 260).foregroundColor(Color(hex: "#000000"))
-                RoundedRectangle(cornerRadius: 50).frame(width: 260,height: 260).foregroundColor(Color(hex: "#D9D9D9"))
+                if(hintCount >= 3){
+                    RoundedRectangle(cornerRadius: 50).frame(width: 260,height: 260).foregroundColor(Color(hex: "#D9D9D9"))
+                }
             }
             .padding(.top,20)
-            Text("힌트2").padding(.top,30)
-            Text("힌트3")
+            
+            Text("힌트2").padding(.top,30).opacity(hintCount<2 ? 1 : 0)
+            
+            Text("힌트3").opacity(hintCount<1 ? 1 : 0)
             
             Button(action:{}){
                 Image(systemName: "play.circle.fill")
@@ -44,7 +49,10 @@ struct TestView: View {
             }
             .padding(.top,20)
             
-            Button(action:{}){
+            Button(action:{
+                hintCount-=1
+                print(hintCount)
+            }){
                 ZStack{
                     RoundedRectangle(cornerRadius: 40).frame(width: 92,height: 38).foregroundColor(Color(hex: "#000000"))
                     Text("힌트").font(.system(size: 18, weight: .regular)).foregroundColor(.white)
