@@ -106,12 +106,14 @@ class MusicManager: ObservableObject {
     }
     
     func getRandomTrack(time: Double) {
-        self.song = tracks.randomElement()
-        if let randomSong = song {
-            if (time == 0){
+        if let randomIndex = tracks.indices.randomElement() {
+            let randomSong = tracks.remove(at: randomIndex)
+            print(tracks.count)
+            self.song = randomSong
+            
+            if (time == 0) {
                 playSongPlay(randomSong)
-            }
-            else{
+            } else {
                 songPlayForTime(randomSong, time: time)
             }
         }
