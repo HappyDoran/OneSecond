@@ -17,7 +17,7 @@ class MusicManager: ObservableObject {
     
     @Published var songs: [Song] = []
     @Published var song: Song? = nil
-    @Published var tracks: [Song] = []
+    @Published var tracks: Set<Song> = []
     @Published var isLoading: Bool = true
     
     @Published var musicPlayer = MPMusicPlayerController.applicationQueuePlayer
@@ -88,10 +88,9 @@ class MusicManager: ObservableObject {
                             return nil
                         }
                         
-                        DispatchQueue.main.async {
-                            self.tracks = songs
-                            print("트랙 목록: \(self.tracks)")
-                        }
+                        self.tracks = Set(songs)
+                        print("트랙 목록: \(self.tracks)")
+                    
                     } else {
                         print("플레이리스트의 상세 정보를 가져오지 못했습니다.")
                     }
@@ -106,8 +105,8 @@ class MusicManager: ObservableObject {
     }
     
     func getRandomTrack(time: Double) {
-        if let randomIndex = tracks.indices.randomElement() {
-            let randomSong = tracks.remove(at: randomIndex)
+        if let randomSong = tracks.randomElement() {
+            tracks.remove(randomSong) // set자체의 요소 접근
             print(tracks.count)
             self.song = randomSong
             
