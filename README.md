@@ -4,7 +4,7 @@
 
 ## 🎥 Youtube Link
 
-(추후 만들어진 유튜브 링크 추가)
+https://www.youtube.com/watch?v=XMYR4lOg4mM
 
 ## 💡 About MusicKit
 
